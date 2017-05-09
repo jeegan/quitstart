@@ -1,0 +1,45 @@
+{
+  "pages":[
+    "pages/map/map",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "navigationBarBackgroundColor": "#ffffff",    
+    "navigationBarTextStyle":"black",
+    "navigationBarTitleText": "温迪儿",
+    "backgroundColor": "#ffffff",
+    "backgroundTextStyle":"light",
+     "enablePullDownRefresh" : false
+  },
+  
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "images/cw.png",
+      "selectedIconPath": "images/flu.png"
+    },{
+      "pagePath": "pages/logs/logs",
+      "text": "日志",
+      "iconPath": "images/drsg.png",
+      "selectedIconPath": "images/uv.png"
+    }],
+    "color": "#000000",
+     "selectedColor": "green",
+     "backgroundColor": "white",
+     "borderStyle": "black",
+     "position":"bottom"
+  },
+  
+  "networkTimeout":{
+    "request":60000,
+    "connectSocket" : 60000 ,
+    "uploadFile" : 60000,
+    "downloadFile" : 60000 
+  } ,
+
+  "debug" : true
+
+
+}
