@@ -1,13 +1,23 @@
 {
   "pages":[
+    "pages/setting/setting",
+    "pages/about/about",
     "pages/map/map",
+    "pages/center/center",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/login/login",
+    "pages/logs/logs",
+    
+
+    "pages/location/location",
+    "pages/systemInfo/systemInfo"
+    
   ],
   "window":{
     "navigationBarBackgroundColor": "#ffffff",    
     "navigationBarTextStyle":"black",
-    "navigationBarTitleText": "温迪儿",
+    "navigationBarTitleText": "首页",
+
     "backgroundColor": "#ffffff",
     "backgroundTextStyle":"light",
      "enablePullDownRefresh" : false
@@ -15,15 +25,15 @@
   
   "tabBar": {
     "list": [{
-      "pagePath": "pages/index/index",
+      "pagePath": "pages/map/map",
       "text": "首页",
-      "iconPath": "images/cw.png",
-      "selectedIconPath": "images/flu.png"
+      "iconPath": "images/index_icon.png",
+      "selectedIconPath": "images/index_active_icon.png"
     },{
-      "pagePath": "pages/logs/logs",
-      "text": "日志",
-      "iconPath": "images/drsg.png",
-      "selectedIconPath": "images/uv.png"
+      "pagePath": "pages/center/center",
+      "text": "我的",
+      "iconPath": "images/my_icon.png",
+      "selectedIconPath": "images/my_active_icon.png"
     }],
     "color": "#000000",
      "selectedColor": "green",

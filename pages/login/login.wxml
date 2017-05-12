@@ -1,0 +1,8 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+<text>pages/login/login.wxml</text>
+
+
+<button bindtap="jumpToIndex" >跳转</button>
+
+</view>

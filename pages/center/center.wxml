@@ -1,0 +1,41 @@
+<view class="container">
+  <view class="user-info"style="background-image: url(../../images/user_bg_1.jpg)">
+  <!--   <view class="user-skin"></view>  -->
+
+    <image class="user-avatar" src="{{ userInfo.avatarUrl }}" ></image>
+
+    <view class="user-nickname"> 
+        {{userInfo.nickName}} 
+        <block wx:if="{{userInfo.gender == 1}}" >
+          <view class="user-sex-male"></view>
+        </block>
+        <block wx:if="{{userInfo.gender == 2}}" >
+          <view class="user-sex-female"></view>
+        </block>
+    </view>
+    <view class="user-location"> {{userInfo.province}},{{userInfo.city}} </view>
+    
+  </view>
+
+  <view class="grids">
+   
+    <view class="grid"  data-url="favorite" bindtap="viewGridDetail">
+      <view class="grid-icon grid-icon-favorite"></view>
+      <view class="grid-title">中心通知</view>
+    </view>
+    <view class="grid"  data-url="gallery" bindtap="viewGridDetail">
+      <view class="grid-icon grid-icon-gallery"></view>
+      <view class="grid-title">宝宝相册</view>
+    </view>
+   <!-- 
+    <view class="grid"  data-url="shake" bindtap="viewGridDetail">
+      <view class="grid-icon grid-icon-shake"></view>
+      <view class="grid-title">摇一摇</view>
+    </view>
+    -->
+    <view class="grid"  data-url="setting" bindtap="viewGridDetail">
+      <view class="grid-icon grid-icon-setting"></view>
+      <view class="grid-title">设置</view>
+    </view>
+  </view>
+</view>

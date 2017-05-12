@@ -1,1 +1,28 @@
-/* pages/map/map.wxss */
+
+.map{
+  padding: 5rpx 5rpx;
+  box-sizing: border-box;
+  box-shadow: 0 0 40rpx #f4f4f4 inset;
+
+  font-family: "微软雅黑";
+  font-size: 28rpx;
+  color: green;
+}
+
+.button-tag {
+  width: 100%;
+  margin-top: 5rpx;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-tag-item {
+  padding:4rpx 6rpx;
+  margin-right:10rpx;
+  font-size:24rpx;
+  box-shadow:0 0 0 1px #ccc;
+  border-top:1px solid #fff;
+  border-radius:10rpx;
+  background-color:#fafafa;
+  color:#666;
+}

@@ -1,0 +1,29 @@
+<view class="weapp-about">
+    <view class="weapp-name">温迪儿早教</view>
+    <view class="webapp-intro">
+        <view class="webapp-intro-item">
+            <view class="webapp-intro-title">国内首家专注于1~6岁高品质托儿教育</view>
+            <view class="webapp-intro-content">
+              为现代家庭提供1-3岁全方位托儿教育管理，为4-6岁的孩子提供素质早教课程。
+            我们拥有高品质的教育服务、舒适的孩童成长环境、专业的教师团队和科学的教育理念
+            </view>
+            <view class="webapp-intro-title">我们的理念:</view>
+            <view class="webapp-intro-content">
+              用心为孩子们服务，爱护孩子们身心，专业的课程帮孩子进步
+            </view>
+
+           <view class="webapp-intro-title">我们的服务:</view>
+            <view class="webapp-intro-content">
+              （成长陪伴卡）会员服务制：月卡、季卡、半年卡、年卡
+              成长陪伴卡套餐涵盖 ：营养早餐、温迪儿阅读时光、专业早教课1节、茶点时光、午休空间、韵律运动时光、兴趣课、小班教学
+            </view>
+
+           <view class="webapp-intro-title">课程目的:</view>
+            <view class="webapp-intro-content">
+                让孩子们懂得平常做人的基本道理，比如如何自律，如何融入社会，成为社会的一分子。
+                尊重生命、公平、诚实、守信，是英国人的核心道德观。英国父母普遍认为“道德是被感染的，而不是被教导的”。
+            </view>
+
+        </view>
+    </view>
+</view>

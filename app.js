@@ -24,13 +24,34 @@ App({
     }else{
       //调用登录接口
       wx.login({
-        success: function () {
+        success: function (lres) {
+          var tmpMobileNum = ''
+          /**把登陆code发往服务器后台https解析获得用户的openid 和 session_key 
+          if (lres.code) {
+              //发起网络请求
+              wx.request({
+                url: 'http://weixin.jucheng.com/sas/weiXin/wxmp!getOpenIdInfo.action',
+                data: {
+                  code: lres.code
+                },
+                success: function(res){
+                  tmpMobileNum = res.data.loginMobNum
+                }
+              })
+           } else {
+              console.log('获取用户登录态失败！' + res.errMsg)
+           } 
+           */
+
+
           wx.getUserInfo({
             success: function (res) {
               that.globalData.userInfo = res.userInfo
+              that.globalData.userInfo.mobNum = tmpMobileNum
               typeof cb == "function" && cb(that.globalData.userInfo)
             }
           })
+
         }
       })
     }

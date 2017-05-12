@@ -3,13 +3,13 @@
 var app = getApp()
 Page({
   data: {
-    motto: 'Hello World',
+    helloWord:  '' ,
     userInfo: {}
   },
   //事件处理函数
   
   bindViewTap: function() {
-    wx.navigateTo({
+    wx.switchTab({
       url: '../logs/logs'
     })
   },
@@ -18,7 +18,7 @@ Page({
 
   bindViewMap:function() {
     wx.navigateTo({
-       url: '../map/map' 
+      url: '../map/map' 
     })
   },
 
@@ -33,26 +33,10 @@ Page({
         userInfo:userInfo
       })
     })
-  } ,
 
-  submitUserInfo:function() {
-    wx.request({
-      url: 'https://URL',
-      data: {},
-      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-      // header: {}, // 设置请求的 header
-      success: function(res){
-        // success
-      },
-      fail: function(res) {
-        // fail
-      },
-      complete: function(res) {
-        // complete
-      }
-    })
 
-  }
+
+  } 
 
 
 
