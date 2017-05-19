@@ -3,20 +3,15 @@
 var app = getApp()
 Page({
   data: {
-    helloWord:  '' ,
-    userInfo: {}
+    userInfo: {},
+    baseUrl: app.globalData.hostHttp + '://' + app.globalData.hostName + '/wendier/', 
+
   },
   //事件处理函数
   
-  bindViewTap: function() {
-    wx.switchTab({
-      url: '../logs/logs'
-    })
-  },
 
 
-
-  bindViewMap:function() {
+  viewLocation:function() {
     wx.navigateTo({
       url: '../map/map' 
     })
@@ -34,11 +29,26 @@ Page({
       })
     })
 
+  } ,
+
+  viewGridDetail: function (e) {
+    var data = e.currentTarget.dataset
+    if (data.url == 'gallery') {
+      app.globalData.keyTitle = data.title
+      app.globalData.keyAction = data.action
+    }
 
 
-  } 
+    wx.navigateTo({
+      url: "../" + data.url + '/' + data.url + '?item =' + data.item
+    })
+  },
 
-
+  viewPreApply:function (e) {
+    wx.navigateTo({
+      url: "../preapply/preapply"
+    })
+  },
 
 
 })

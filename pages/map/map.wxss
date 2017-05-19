@@ -1,12 +1,14 @@
 
+.locTitle {
+  font-family: "微软雅黑";
+  font-size: 30rpx;
+  color: green;
+}
+
 .map{
   padding: 5rpx 5rpx;
   box-sizing: border-box;
   box-shadow: 0 0 40rpx #f4f4f4 inset;
-
-  font-family: "微软雅黑";
-  font-size: 28rpx;
-  color: green;
 }
 
 .button-tag {
@@ -19,7 +21,7 @@
 .button-tag-item {
   padding:4rpx 6rpx;
   margin-right:10rpx;
-  font-size:24rpx;
+  font-size:30rpx;
   box-shadow:0 0 0 1px #ccc;
   border-top:1px solid #fff;
   border-radius:10rpx;

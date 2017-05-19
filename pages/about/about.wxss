@@ -43,9 +43,9 @@ view {
 .webapp-intro-content {
     margin-bottom: 10rpx;
     margin-top: 10rpx;
-    font-size: 28rpx;
+    font-size: 25rpx;
     text-indent: 2em;
-    padding-top: 15rpx;
-    padding-bottom: 15rpx;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
    
 }

@@ -1,9 +1,6 @@
 {
-
-  "navigationBarTitleText": "中心位置",
+  "navigationBarTitleText": "预约体验",
   "navigationBarBackgroundColor": "#47a86c",
   "navigationBarTextStyle": "white",
   "enablePullDownRefresh": false
-
-
 }

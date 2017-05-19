@@ -1,21 +1,98 @@
-/**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.title-info {
+    box-sizing: border-box;
+    width: 750rpx;
+    height: 200rpx;
+    padding: 30rpx 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #999;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #666;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.user-nickname {
+    color: #fff;
+    font-size: 40rpx;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, .6);
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.grids {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.usermotto {
-  margin-top: 200px;
+.grids::before, .grid::before, .grids::after, .grid::after {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 99;
+    background-color: #ccc;
+}
+.grids::before, .grid::before {
+    left: 0;
+    width: 100%;
+    height: 1px;
+    transform: scaleY(0.5);
+}
+
+.grids::before {
+    top: 0;
+}
+
+.grid::before {
+    bottom: 0;
+}
+
+.grids::after, .grid::after {
+    top: 0;
+    height: 100%;
+    width: 1px;
+    transform: scaleX(0.5);
+}
+
+.grids::after {
+    left: 0;
+}
+
+.grid::after {
+    right: 0;
+}
+
+.grid {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 250rpx;
+    height: 250rpx;
+    padding: 20rpx;
+    text-align: center;
+}
+
+.grid:active {
+    background-color: #fafafa;
+}
+
+.grid-icon {
+    width: 80rpx;
+    height: 80rpx;
+    margin-top: 20rpx;
+    margin-bottom: 10rpx;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+
+.grid-title {
+    width: 100%;
+    color: #666;
 }

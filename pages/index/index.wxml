@@ -1,21 +1,22 @@
-<!--index.wxml-->
 <view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{ userInfo.mobNum }}</text>
-  
-
-
-
-  </view>
-  <view class="classname">
-    <button bindtap="submitUserInfo" >提交用户信息</button>
-
-    <button bindtap="bindViewMap" >地图</button>
+  <view class="title-info"style="background-image: url({{baseUrl}}resource/images/user_bg_1.jpg)">
+    <view class="user-nickname"> 
+        温迪儿早教中心欢迎您
+    </view>    
   </view>
 
-
+  <view class="grids">   
+    <view class="grid"  data-url="location" bindtap="viewLocation">
+      <view class="grid-icon" style="background-image: url({{baseUrl}}resource/icon/icon_centerloc.png)"></view>
+      <view class="grid-title">中心位置</view>
+    </view>
+    <view class="grid"  data-url="gallery" data-title='中心环境' data-action='getZxPicList' bindtap="viewGridDetail">
+      <view class="grid-icon" style="background-image:url({{baseUrl}}resource/icon/icon_pics.png)" ></view>
+      <view class="grid-title">中心环境</view>
+    </view>
+    <view class="grid"  bindtap="viewPreApply">
+      <view class="grid-icon" style="background-image:url({{baseUrl}}resource/icon/icon_preApply.png)" ></view>
+      <view class="grid-title">预约体验</view>
+    </view>
+  </view>
 </view>

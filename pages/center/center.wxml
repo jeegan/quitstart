@@ -1,5 +1,5 @@
 <view class="container">
-  <view class="user-info"style="background-image: url(../../images/user_bg_1.jpg)">
+  <view class="user-info"style="background-image: url({{baseUrl}}resource/images/user_bg_3.jpg)">
   <!--   <view class="user-skin"></view>  -->
 
     <image class="user-avatar" src="{{ userInfo.avatarUrl }}" ></image>
@@ -19,12 +19,12 @@
 
   <view class="grids">
    
-    <view class="grid"  data-url="favorite" bindtap="viewGridDetail">
-      <view class="grid-icon grid-icon-favorite"></view>
+    <view class="grid"  data-url="notice" bindtap="viewGridDetail">
+      <view class="grid-icon" style="background-image: url({{baseUrl}}resource/icon/icon_notice.png)" ></view>
       <view class="grid-title">中心通知</view>
     </view>
-    <view class="grid"  data-url="gallery" bindtap="viewGridDetail">
-      <view class="grid-icon grid-icon-gallery"></view>
+    <view class="grid"  data-url="gallery" data-title='宝贝相册' data-action="getBbPicList" bindtap="viewGridDetail">
+      <view class="grid-icon" style="background-image: url({{baseUrl}}resource/icon/icon_gallery.png)" ></view>
       <view class="grid-title">宝宝相册</view>
     </view>
    <!-- 

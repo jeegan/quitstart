@@ -1,0 +1,52 @@
+<form bindsubmit="savePersonInfo">
+    <view class="form-list">
+        <view class="form-item">
+            <view class="form-item-hd">宝宝姓名</view>
+            <view class="form-item-bd">
+                <input type="text" name="name" value="{{name}}" placeholder="请输入姓名" maxlength="4"/>
+            </view>
+        </view>
+
+
+        <view class="form-item">
+            <view class="form-item-hd">宝宝年龄</view>
+            <view class="form-item-bd">
+                <input type="number" name="age" value="{{age}}" placeholder="请输入年龄" maxlength="3"/>
+            </view>
+        </view>
+
+        <view class="form-item">
+            <view class="form-item-hd">宝宝性别</view>
+            <view class="form-item-bd">
+                <picker mode="selector" value="{{genderIndex}}" range="{{genderArray}}" bindchange="changeGender">
+                    <block wx:if="{{gender == ''}}">
+                        <view class="input input-placeholder">请选择性别</view>
+                        <input type="text" name="gender" value="" class="hidden" maxlength="1"/>
+                    </block>
+                    <block wx:else>
+                        <view class="input">{{genderArray[genderIndex]}}</view>
+                        <input type="text" name="gender" value="{{genderArray[genderIndex]}}" class="hidden" maxlength="1"/>
+                        <input type="text" name="genderIndex" value="{{genderIndex}}" class="hidden" maxlength="1"/>                      
+                    </block>
+                </picker>
+            </view>
+        </view>
+
+    </view>
+    <view class="form-list">
+        <view class="form-item">
+            <view class="form-item-hd">手机号码</view>
+            <view class="form-item-bd">
+                <input type="number" name="tel" value="{{tel}}" placeholder="请输入手机号码" maxlength="11"/>
+            </view>
+        </view>
+
+    </view>
+
+   <block wx:if = "{{hasSumit}}" >
+    <view class="tksSubmit">已提交预约,客服将联系您</view>
+   </block>
+   <block wx:else> 
+      <button  formType="submit" class="edit-btn" >预约提交</button>
+    </block>
+</form>

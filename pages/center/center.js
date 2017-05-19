@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {}
+    userInfo: {},
+    baseUrl: app.globalData.hostHttp + '://' + app.globalData.hostName + '/wendier/', 
   },
 
   /**
@@ -28,13 +29,19 @@ Page({
 
   viewGridDetail: function (e) {
     var data = e.currentTarget.dataset
-    if (data.url =='gallery' || data.url =='favorite') {
+    if ( data.url =='favorite') {
       wx.showToast({
         title: '在建中...',
       })
     }else{
+      if (data.url =='gallery')  {
+        app.globalData.keyTitle = data.title
+        app.globalData.keyAction = data.action
+      }
+
+
       wx.navigateTo({
-        url: "../" + data.url + '/' + data.url
+        url: "../" + data.url + '/' + data.url + '?item =' + data.item
       })
     }
   },
