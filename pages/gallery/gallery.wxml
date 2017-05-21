@@ -6,7 +6,7 @@
     <view class="gallery">
         <block wx:for="{{pictures}}" wx:for-item="picturesItem" wx:for-index="picturesIndex" wx:key="pictures">
             <view class="gallery-item">
-                <image class="gallery-item-cover" src="{{baseUrl+picturesItem}}" mode="aspectFill" data-index="{{picturesIndex}}" bindtap="previewImage"></image>
+                <image class="gallery-item-cover" src="{{picturesItem}}" mode="aspectFill" data-index="{{picturesIndex}}" bindtap="previewImage"></image>
             </view>
         </block>
     </view>

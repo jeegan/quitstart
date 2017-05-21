@@ -1,3 +1,4 @@
+var util = require('../../utils/MD5.js') 
 var app = getApp()
 Page({
   data:{
@@ -14,7 +15,13 @@ Page({
 
       [{ title: '发起支付', text: '', access: true, fn: 'viewPay' }]
 
-    ]
+    ],
+
+    baseUrl: app.globalData.hostHttp + '://' + app.globalData.hostName + '/wendier/', 
+    appid: 'wx6101020539e63409',//appid    
+    body: '聚成股份',//商户名  
+    mch_id: '1250644901',//商户号  
+    key : 'jucheng', 
   },
 
   onLoad:function(options){},
@@ -58,74 +65,54 @@ Page({
   viewPay : function()  {
     var that = this
 
-
-    //发起支付  
-    var prepay_id = that.getXMLNodeValue('prepay_id', res.data.toString("utf-8"))
-    var tmp = prepay_id.split('[')
-    var tmp1 = tmp[2].split(']')
-    //签名    
-    var key = '';
-    var appId = '';
-    var timeStamp = that.createTimeStamp();
-    var nonceStr = that.randomString();
-    var stringSignTemp = "appId=&nonceStr=" + nonceStr + "&package=prepay_id=" + tmp1[0] + "&signType=MD5&timeStamp=" + timeStamp + "&key="
-    var sign = MD5.MD5(stringSignTemp).toUpperCase()
-    console.log(sign)
-    var param = { "timeStamp": timeStamp, "package": 'prepay_id=' + tmp1[0], "paySign": sign, "signType": "MD5", "nonceStr": nonceStr }
-
-
-
     //统一支付  
     wx.request({
-      url: 'https://api.mch.weixin.qq.com/pay/unifiedorder',
+      url: that.data.baseUrl + 'payAction!getUnifiedorderReturns.action',
       method: 'POST',
-      head: 'application/x-www-form-urlencoded',
-      data: formData, // 设置请求的 header  
+      head: 'application/x-www-form-urlencoded', // 设置请求的 header  
+      data: {
+        appid : that.data.appid ,//appid    
+        body : that.data.body ,//商户名  
+        mch_id : that.data.mch_id,//商户号
+        key : that.data.key,    
+      }, 
       success: function (res) {
         console.log(res.data)
 
-        var result_code = that.getXMLNodeValue('result_code', res.data.toString("utf-8"))
-        var resultCode = result_code.split('[')[2].split(']')[0]
-        if (resultCode == 'FAIL') {
-          var err_code_des = that.getXMLNodeValue('err_code_des', res.data.toString("utf-8"))
-          var errDes = err_code_des.split('[')[2].split(']')[0]
-          wx.navigateBack({
-            delta: 1, // 回退前 delta(默认为1) 页面  
-            success: function (res) {
-              wx.showToast({
-                title: errDes,
-                icon: 'success',
-                duration: 2000
+          var result_code = that.getXMLNodeValue('result_code', res.data.toString("utf-8"))
+          var resultCode = result_code.split('[')[2].split(']')[0]
+          if (resultCode == 'FAIL') {
+              var err_code_des = that.getXMLNodeValue('err_code_des', res.data.toString("utf-8"))
+              var errDes = err_code_des.split('[')[2].split(']')[0]
+              wx.navigateBack({
+                  delta: 1, // 回退前 delta(默认为1) 页面  
+                  success: function (res) {
+                    wx.showToast({
+                      title: errDes,
+                      icon: 'success',
+                      duration: 2000
+                    })
+                  },
               })
-            },
-
-          })
-        } else {
-          //发起支付  
-          var prepay_id = that.getXMLNodeValue('prepay_id', res.data.toString("utf-8"))
-          var tmp = prepay_id.split('[')
-          var tmp1 = tmp[2].split(']')
-          //签名    
-          var key = '';
-          var appId = '';
-          var timeStamp = that.createTimeStamp();
-          var nonceStr = that.randomString();
-          var stringSignTemp = "appId=&nonceStr=" + nonceStr + "&package=prepay_id=" + tmp1[0] + "&signType=MD5&timeStamp=" + timeStamp + "&key="
-          var sign = MD5.MD5(stringSignTemp).toUpperCase()
-          console.log(sign)
-          var param = { "timeStamp": timeStamp, "package": 'prepay_id=' + tmp1[0], "paySign": sign, "signType": "MD5", "nonceStr": nonceStr }
-          that.toPay(param)
-        }
-
-
+          } else {
+            //发起支付  
+              var prepay_id = that.getXMLNodeValue('prepay_id', res.data.toString("utf-8"))
+              var tmp = prepay_id.split('[')
+              var tmp1 = tmp[2].split(']')
+              //签名    
+              var timeStamp = that.createTimeStamp();
+              var nonceStr = that.randomString();
+              var stringSignTemp = "appId="+that.data.appid+"&nonceStr=" + nonceStr + "&package=prepay_id=" + tmp1[0] + "&signType=MD5&timeStamp=" ;
+                stringSignTemp +=  timeStamp + "&key=" + that.data.key ;
+              var sign = MD5.hexMD5(stringSignTemp).toUpperCase()
+              console.log(sign)
+              var param = { "timeStamp": timeStamp, "package": 'prepay_id=' + tmp1[0], "paySign": sign, "signType": "MD5", "nonceStr": nonceStr }
+              that.toPay(param)
+          }
 
       },
 
     })
-
-
-
-
 
   },
 
@@ -177,6 +164,20 @@ Page({
     return _tmp[0]
   },  
 
+  /* 随机数 */
+  randomString: function () {
+    var chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+    var maxPos = chars.length;
+    var pwd = '';
+    for (var i = 0; i < 32; i++) {
+      pwd += chars.charAt(Math.floor(Math.random() * maxPos));
+    }
+    return pwd;
+  },  
+  /* 时间戳产生函数   */
+  createTimeStamp: function () {
+    return parseInt(new Date().getTime() / 1000) + ''
+  },  
 
 
 

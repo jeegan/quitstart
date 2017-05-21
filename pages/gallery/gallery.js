@@ -21,6 +21,11 @@ Page({
      url: that.data.baseUrl + 'picAction!'+app.globalData.keyAction+'.action',
      //data :{pcount : '8'},
      success : function(res) {
+       var ii
+       for (ii = 0; ii < res.data.length;ii++) {
+         res.data[ii] = that.data.baseUrl + res.data[ii];
+        }
+
        that.setData({
          pictures : res.data
        })

@@ -1,10 +1,10 @@
 {
   "pages":[
   
-    "pages/setting/setting",
+  "pages/setting/setting",
     "pages/index/index",
           "pages/center/center",
-
+ 
   "pages/gallery/gallery",
 "pages/notice/notice",
 "pages/about/about",
